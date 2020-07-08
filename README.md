@@ -39,3 +39,6 @@ O processo de Pull Request funciona da seguinte maneira:
 2.  Fará seu projeto nesse fork
 3.  Fará um commit e subirá as alterações para o  **SEU**  fork
 4.  Enviar um pull request pela interface do Github
+
+### **PS**
+Importante frisar que esse código não será usado em nenhuma hipótese para qualquer fim a não ser o de avaliação dos conhecimentos do candidato.
