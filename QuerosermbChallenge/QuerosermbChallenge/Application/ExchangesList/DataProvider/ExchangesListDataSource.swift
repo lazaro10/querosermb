@@ -11,10 +11,10 @@ import UIKit
 
 final class ExchangesListDataSource: NSObject {
     
-    typealias CompletionHandler = (ExchangeItemAdapter) -> ()
+    typealias CompletionHandler = (ExchangeViewModel) -> ()
     typealias CompletionHandlerRefresh = () -> ()
     
-    var adapters: [ExchangeItemAdapter] = [] {
+    var viewModels: [ExchangeViewModel] = [] {
         didSet {
             refreshControl.endRefreshing()
             tableView?.reloadData()
@@ -61,14 +61,14 @@ final class ExchangesListDataSource: NSObject {
 extension ExchangesListDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return adapters.count
+        return viewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ExchangeTableViewCell = tableView.dequeueReusableCell(indexPath: indexPath)
-        let adapter = adapters[indexPath.row]
+        let viewModel = viewModels[indexPath.row]
         
-        cell.bind(adapter: adapter)
+        cell.bind(viewModel: viewModel)
         
         return cell
     }
@@ -82,7 +82,7 @@ extension ExchangesListDataSource: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        completion(adapters[indexPath.row])
+        completion(viewModels[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

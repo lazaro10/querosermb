@@ -39,7 +39,7 @@ class ExchangeDetailViewController: UIViewController {
         return stackView
     }()
     
-    var exchangeAdapter: ExchangeItemAdapter?
+    var viewModel: ExchangeViewModel?
 
     // MARK: Life Cycle
     
@@ -87,11 +87,11 @@ class ExchangeDetailViewController: UIViewController {
     }
     
     private func bindExchangeAdapter() {
-        guard let adapter = exchangeAdapter else { return }
+        guard let viewModel = viewModel else { return }
         
-        iconImageView.kf.setImage(with: adapter.icon)
-        nameLabel.text = adapter.name
-        adapter.allExtras.forEach {
+        iconImageView.kf.setImage(with: viewModel.icon)
+        nameLabel.text = viewModel.name
+        viewModel.allExtras.forEach {
             extrasStackView.addArrangedSubview(ExchangeExtraView(title: $0.0, date: $0.1))
         }
     }

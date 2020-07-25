@@ -1,5 +1,5 @@
 //
-//  ExchangesLisViewModelSpec.swift
+//  ExchangesListInteractorSpec.swift
 //  QuerosermbChallengeTests
 //
 //  Created by Lazaro on 19/07/20.
@@ -11,10 +11,10 @@ import Nimble
 
 @testable import QuerosermbChallenge
 
-final class ExchangesLisViewModelSpec: QuickSpec {
+final class ExchangesListInteractorSpec: QuickSpec {
     var gateway: ExchangeGatewayMock!
-    var spy: ExchangesLisViewModelSpy!
-    var sut: ExchangesLisViewModel!
+    var spy: ExchangesListPresenterSpy!
+    var sut: ExchangesListInteractor!
     
     var exchanges: [Exchange] {
         let result = gateway.stubbedExchangesOnSuccessResult?.0
@@ -22,27 +22,27 @@ final class ExchangesLisViewModelSpec: QuickSpec {
         return result!
     }
     
-    var exchangesAdapters: [ExchangeItemAdapter] {
-        return self.spy.invokedShowExchangesParameters!.exchanges
+    var exchangesAdapters: [ExchangeViewModel] {
+        return self.spy.invokedOnExchangesParameters!.viewModels
     }
     
     func setupExchanges() {
         gateway = ExchangeGatewayMock(exchanges: ExchangesMock.exchanges!,
                                       exchangesIcon: ExchangesMock.icons!)
-        sut = ExchangesLisViewModel(exchangeGatway: gateway)
-        spy = ExchangesLisViewModelSpy(viewModel: sut)
+        spy = ExchangesListPresenterSpy()
+        sut = ExchangesListInteractor(gateway: gateway, presenter: spy)
     }
     
     func setupEmptyExchanges() {
         gateway = ExchangeGatewayMock(exchanges: [], exchangesIcon: [])
-        sut = ExchangesLisViewModel(exchangeGatway: gateway)
-        spy = ExchangesLisViewModelSpy(viewModel: sut)
+        spy = ExchangesListPresenterSpy()
+        sut = ExchangesListInteractor(gateway: gateway, presenter: spy)
     }
     
     func setupErrorExchanges() {
         gateway = ExchangeGatewayMock(error: .offline)
-        sut = ExchangesLisViewModel(exchangeGatway: gateway)
-        spy = ExchangesLisViewModelSpy(viewModel: sut)
+        spy = ExchangesListPresenterSpy()
+        sut = ExchangesListInteractor(gateway: gateway, presenter: spy)
     }
     
     override func spec() {
@@ -62,7 +62,7 @@ final class ExchangesLisViewModelSpec: QuickSpec {
                 }
                 
                 it("should call the gateway method that loads the exchange list") {
-                    expect(self.spy.invokedShowExchanges).to(equal(true))
+                    expect(self.spy.invokedOnExchanges).to(equal(true))
                 }
                 
                 it("should have twenty-eight exchanges on the list") {
@@ -74,11 +74,11 @@ final class ExchangesLisViewModelSpec: QuickSpec {
                 }
                 
                 it("The loading should be removed from the screen") {
-                    expect(self.spy.invokedRemoveLoading).to(equal(true))
+                    expect(self.spy.invokedHideLoading).to(equal(true))
                 }
                 
                 it("The loading should be removed from the screen only once") {
-                    expect(self.spy.invokedRemoveLoadingCount).to(equal(1))
+                    expect(self.spy.invokedHideLoadingCount).to(equal(1))
                 }
             }
             
@@ -97,7 +97,7 @@ final class ExchangesLisViewModelSpec: QuickSpec {
                 }
                 
                 it("should call the gateway method that loads the exchange list") {
-                    expect(self.spy.invokedShowExchanges).to(equal(true))
+                    expect(self.spy.invokedOnExchanges).to(equal(true))
                 }
                 
                 it("should call the gateway method that loads the exchange list only once") {
@@ -113,11 +113,11 @@ final class ExchangesLisViewModelSpec: QuickSpec {
                 }
                 
                 it("The loading should be removed from the screen") {
-                    expect(self.spy.invokedRemoveLoading).to(equal(true))
+                    expect(self.spy.invokedHideLoading).to(equal(true))
                 }
                 
                 it("The loading should be removed from the screen only once") {
-                    expect(self.spy.invokedRemoveLoadingCount).to(equal(1))
+                    expect(self.spy.invokedHideLoadingCount).to(equal(1))
                 }
             }
             
@@ -140,24 +140,24 @@ final class ExchangesLisViewModelSpec: QuickSpec {
                 }
                 
                 it("An error should be shown") {
-                    expect(self.spy.invokedShowError).to(equal(true))
+                    expect(self.spy.invokedShowLoading).to(equal(true))
                 }
                 
                 it("An error should be shown only once") {
-                    expect(self.spy.invokedShowErrorCount).to(equal(1))
+                    expect(self.spy.invokedShowLoadingCount).to(equal(1))
                 }
                 
                 it("the error message should be `You are currently offline.`") {
-                    let message = self.spy.invokedShowErrorParameters?.message
+                    let message = self.spy.invokedOnErrorParameters?.message
                     expect(message).to(equal("You are currently offline."))
                 }
                 
                 it("The loading should be removed from the screen") {
-                    expect(self.spy.invokedRemoveLoading).to(equal(true))
+                    expect(self.spy.invokedHideLoading).to(equal(true))
                 }
                 
                 it("The loading should be removed from the screen only once") {
-                    expect(self.spy.invokedRemoveLoadingCount).to(equal(1))
+                    expect(self.spy.invokedHideLoadingCount).to(equal(1))
                 }
             }
         }

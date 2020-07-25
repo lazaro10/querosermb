@@ -1,5 +1,5 @@
 //
-//  ExchangeItemAdapter.swift
+//  ExchangeViewModel.swift
 //  QuerosermbChallenge
 //
 //  Created by Lazaro on 18/07/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ExchangeItemAdapter {
+struct ExchangeViewModel {
     
     var icon: URL? = nil
     let name: String
@@ -36,12 +36,12 @@ struct ExchangeItemAdapter {
         allExtras.append((R.string.exchangesExtra.sumMonth(), "\(entity.volume1MthUsd)".dolar()))
     }
     
-    init(entity: ExchangeIcon?, adapter: ExchangeItemAdapter) {
+    init(entity: ExchangeIcon?, viewModel: ExchangeViewModel) {
         icon = entity?.url
-        name = adapter.name
-        exchangeId = adapter.exchangeId
-        extras = adapter.extras
-        allExtras = adapter.allExtras
+        name = viewModel.name
+        exchangeId = viewModel.exchangeId
+        extras = viewModel.extras
+        allExtras = viewModel.allExtras
     }
     
 }

@@ -7,5 +7,5 @@
 //
 
 protocol ExchangesListViewDelegate: class {
-    func didSelect(adapter: ExchangeItemAdapter)
+    func didSelect(viewModel: ExchangeViewModel)
 }

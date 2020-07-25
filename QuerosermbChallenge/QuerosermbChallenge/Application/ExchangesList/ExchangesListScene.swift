@@ -1,5 +1,5 @@
 //
-//  ExchangesListViewController.swift
+//  ExchangesListScene.swift
 //  QuerosermbChallenge
 //
 //  Created by Lazaro on 13/07/20.
@@ -9,7 +9,7 @@
 import UIKit
 import NVActivityIndicatorView
 
-final class ExchangesListViewController: UIViewController {
+final class ExchangesListScene: UIViewController {
     
     private let tableView  = UITableView()
     private let snakeBarErrorView = SnakeBarErrorView()
@@ -17,7 +17,7 @@ final class ExchangesListViewController: UIViewController {
     
     private lazy var dataSource: ExchangesListDataSource = {
         let completion: ExchangesListDataSource.CompletionHandler = { [weak self] in
-            self?.didSelect(adapter: $0)
+            self?.didSelect(viewModel: $0)
         }
         
         let completionRefresh: ExchangesListDataSource.CompletionHandlerRefresh = { [weak self] in
@@ -31,13 +31,17 @@ final class ExchangesListViewController: UIViewController {
         return dataSource
     }()
     
-    private let viewModel: ExchangesLisViewModel
+    private lazy var interactor: ExchangesListInteractor = {
+        return ExchangesListInteractor(gateway: gateway, presenter: self)
+    }()
+    
+    private let gateway: ExchangeGateway
     private let delegate: ExchangesListViewDelegate
     
     // MARK: Initializer
     
-    init(viewModel: ExchangesLisViewModel, delegate: ExchangesListViewDelegate) {
-        self.viewModel = viewModel
+    init(gateway: ExchangeGateway, delegate: ExchangesListViewDelegate) {
+        self.gateway = gateway
         self.delegate = delegate
         
         super.init(nibName: nil, bundle: nil)
@@ -59,7 +63,6 @@ final class ExchangesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bindViewModel()
         loadExchanges()
     }
     
@@ -86,33 +89,32 @@ final class ExchangesListViewController: UIViewController {
             loadingView.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
-
-    private func bindViewModel() {
-        viewModel.exchangeItemAdapters.bind({ [weak self] exchanges in
-            DispatchQueue.main.async {
-                self?.dataSource.adapters = exchanges
-            }
-        })
-        
-        viewModel.isLoading.bind({ [weak self] (isOn) in
-            DispatchQueue.main.async {
-                let operation = isOn ? NVActivityIndicatorView.startAnimating : NVActivityIndicatorView.stopAnimating
-                operation(self!.loadingView)()
-            }
-        })
-        
-        viewModel.onError.bind({ [weak self] (message) in
-            DispatchQueue.main.async {
-                self?.snakeBarErrorView.show(message)
-            }
-        })
-    }
     
     private func loadExchanges() {
-        viewModel.loadExchanges()
+        interactor.loadExchanges()
     }
     
-    private func didSelect(adapter: ExchangeItemAdapter) {
-        delegate.didSelect(adapter: adapter)
+    private func didSelect(viewModel: ExchangeViewModel) {
+        delegate.didSelect(viewModel: viewModel)
     }
+}
+
+extension ExchangesListScene: ExchangesListPresenter {
+    
+    func onExchanges(viewModels: [ExchangeViewModel]) {
+        self.dataSource.viewModels = viewModels
+    }
+    
+    func onError(message: String) {
+        snakeBarErrorView.show(message)
+    }
+    
+    func showLoading() {
+        loadingView.startAnimating()
+    }
+    
+    func hideLoading() {
+        loadingView.stopAnimating()
+    }
+    
 }

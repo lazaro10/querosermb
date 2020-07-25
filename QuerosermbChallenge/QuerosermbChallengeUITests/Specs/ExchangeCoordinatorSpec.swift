@@ -69,6 +69,7 @@ final class ExchangeCoordinatorSpec: BaseTest {
 
                 it("should appear the screen empty") {
                     self.robot
+                    .wiat()
                     .result()
                     .checkEmptyStateList()
                 }
@@ -81,6 +82,7 @@ final class ExchangeCoordinatorSpec: BaseTest {
 
                 it("error feedback should appear") {
                     self.robot
+                    .wiat()
                     .result()
                     .checkErrorStateList()
                 }

@@ -45,12 +45,12 @@ final class ExchangeTableViewCell: UITableViewCell, Reusable  {
         return stackView
     }()
     
-    func bind(adapter: ExchangeItemAdapter) {
-        iconImageView.kf.setImage(with: adapter.icon)
-        nameLabel.text = adapter.name
-        identifierLabel.text = adapter.exchangeId
+    func bind(viewModel: ExchangeViewModel) {
+        iconImageView.kf.setImage(with: viewModel.icon)
+        nameLabel.text = viewModel.name
+        identifierLabel.text = viewModel.exchangeId
         extrasStackView.removeAllArrangedSubviews()
-        adapter.extras.forEach {
+        viewModel.extras.forEach {
             extrasStackView.addArrangedSubview(ExchangeExtraView(title: $0.0, date: $0.1))
         }
     }

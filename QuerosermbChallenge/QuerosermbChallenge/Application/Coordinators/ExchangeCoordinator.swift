@@ -10,9 +10,8 @@ import UIKit
 
 final class ExchangeCoordinator {
 
-    private lazy var exchangesListViewController: ExchangesListViewController = {
-        let viewModel = ExchangesLisViewModel(exchangeGatway: gateway)
-        let viewController = ExchangesListViewController(viewModel: viewModel, delegate: self)
+    private lazy var exchangesListViewController: ExchangesListScene = {
+        let viewController = ExchangesListScene(gateway: gateway, delegate: self)
         viewController.title = R.string.navigationBar.exchangeList()
         
         return viewController
@@ -37,9 +36,10 @@ extension ExchangeCoordinator: Coordinator {
 }
 
 extension ExchangeCoordinator: ExchangesListViewDelegate {
-    func didSelect(adapter: ExchangeItemAdapter) {
+    
+    func didSelect(viewModel: ExchangeViewModel) {
         exchangeDetailViewController = ExchangeDetailViewController()
-        exchangeDetailViewController?.exchangeAdapter = adapter
+        exchangeDetailViewController?.viewModel = viewModel
         
         guard let viewController = exchangeDetailViewController else { return }
         
@@ -49,4 +49,5 @@ extension ExchangeCoordinator: ExchangesListViewDelegate {
             navigationController.pushViewController(viewController, animated: true)
         }
     }
+    
 }

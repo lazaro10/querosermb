@@ -16,7 +16,7 @@
 		62302B0624BCDD6B0015A331 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62302B0424BCDD6B0015A331 /* LaunchScreen.storyboard */; };
 		62302B2C24BCDE640015A331 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62302B2B24BCDE640015A331 /* Coordinator.swift */; };
 		62302B2E24BCDE8D0015A331 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62302B2D24BCDE8D0015A331 /* ApplicationCoordinator.swift */; };
-		62302B3124BCDF8A0015A331 /* ExchangesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62302B3024BCDF8A0015A331 /* ExchangesListViewController.swift */; };
+		62302B3124BCDF8A0015A331 /* ExchangesListScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62302B3024BCDF8A0015A331 /* ExchangesListScene.swift */; };
 		62302B3324BCDFCA0015A331 /* ExchangeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62302B3224BCDFCA0015A331 /* ExchangeCoordinator.swift */; };
 		627F7C7F24C3CFBB0011848B /* AccessibilityLabels.strings in Resources */ = {isa = PBXBuildFile; fileRef = 627F7C7E24C3CFBB0011848B /* AccessibilityLabels.strings */; };
 		6281154824BD00DC00B8488D /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281154724BD00DC00B8488D /* GetRequest.swift */; };
@@ -27,8 +27,8 @@
 		6281155724BD02FD00B8488D /* ExchangeGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281155624BD02FD00B8488D /* ExchangeGateway.swift */; };
 		6281155A24BD036C00B8488D /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281155924BD036C00B8488D /* Exchange.swift */; };
 		6281155E24BD0B8D00B8488D /* StandardExchangeGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6281155D24BD0B8D00B8488D /* StandardExchangeGateway.swift */; };
-		628BF9A124C2DC9C005EF28F /* ExchangeItemAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628BF9A024C2DC9C005EF28F /* ExchangeItemAdapter.swift */; };
-		62905B8624BD46B6001D50F1 /* ExchangesLisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62905B8524BD46B6001D50F1 /* ExchangesLisViewModel.swift */; };
+		628BF9A124C2DC9C005EF28F /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628BF9A024C2DC9C005EF28F /* ExchangeViewModel.swift */; };
+		62905B8624BD46B6001D50F1 /* ExchangesListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62905B8524BD46B6001D50F1 /* ExchangesListInteractor.swift */; };
 		62905B8C24BD9696001D50F1 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62905B8B24BD9696001D50F1 /* UITableView+Reusable.swift */; };
 		62905B8E24BD96C1001D50F1 /* ExchangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62905B8D24BD96C1001D50F1 /* ExchangeTableViewCell.swift */; };
 		62905B9024BD9A2F001D50F1 /* ExchangesListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62905B8F24BD9A2F001D50F1 /* ExchangesListDataSource.swift */; };
@@ -41,6 +41,7 @@
 		62C93F0724C1B4A200929B7C /* API.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62C93F0624C1B4A200929B7C /* API.strings */; };
 		62C93F0A24C1B57200929B7C /* NetworkError.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62C93F0C24C1B57200929B7C /* NetworkError.strings */; };
 		62C93F1024C1B72600929B7C /* ExchangesExtra.strings in Resources */ = {isa = PBXBuildFile; fileRef = 62C93F1224C1B72600929B7C /* ExchangesExtra.strings */; };
+		62E0D13E24CC1B6E0006A94E /* ExchangesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E0D13D24CC1B6E0006A94E /* ExchangesListPresenter.swift */; };
 		62E443BE24C4193E0058F021 /* QuerosermbChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E443BD24C4193E0058F021 /* QuerosermbChallengeTests.swift */; };
 		62E443C624C419BC0058F021 /* QuerosermbChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E443C524C419BC0058F021 /* QuerosermbChallengeUITests.swift */; };
 		62E443CE24C41A6F0058F021 /* MapperHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E443CD24C41A6F0058F021 /* MapperHelper.swift */; };
@@ -56,7 +57,7 @@
 		62E443E724C41B9E0058F021 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E443E624C41B9E0058F021 /* BaseTest.swift */; };
 		62E443EE24C424C70058F021 /* ExchangeCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E443ED24C424C70058F021 /* ExchangeCoordinatorSpec.swift */; };
 		62E443F024C425C90058F021 /* ExchangeCoordinatorRobot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E443EF24C425C90058F021 /* ExchangeCoordinatorRobot.swift */; };
-		62E443F224C43D7E0058F021 /* ExchangesLisViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E443F124C43D7E0058F021 /* ExchangesLisViewModelSpy.swift */; };
+		62E443F224C43D7E0058F021 /* ExchangesListPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E443F124C43D7E0058F021 /* ExchangesListPresenterSpy.swift */; };
 		62E443F524C4470F0058F021 /* ExchangesLisViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E443F424C4470F0058F021 /* ExchangesLisViewModelSpec.swift */; };
 		62EA043F24C00A8D0076F026 /* DolarFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EA043E24C00A8D0076F026 /* DolarFormatter.swift */; };
 		62EA044224C00B920076F026 /* ExchangeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EA044124C00B920076F026 /* ExchangeDetailViewController.swift */; };
@@ -105,7 +106,7 @@
 		62302B0724BCDD6B0015A331 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62302B2B24BCDE640015A331 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		62302B2D24BCDE8D0015A331 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
-		62302B3024BCDF8A0015A331 /* ExchangesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesListViewController.swift; sourceTree = "<group>"; };
+		62302B3024BCDF8A0015A331 /* ExchangesListScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesListScene.swift; sourceTree = "<group>"; };
 		62302B3224BCDFCA0015A331 /* ExchangeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCoordinator.swift; sourceTree = "<group>"; };
 		627F7C7E24C3CFBB0011848B /* AccessibilityLabels.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = AccessibilityLabels.strings; sourceTree = "<group>"; };
 		6281154724BD00DC00B8488D /* GetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
@@ -116,8 +117,8 @@
 		6281155624BD02FD00B8488D /* ExchangeGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeGateway.swift; sourceTree = "<group>"; };
 		6281155924BD036C00B8488D /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
 		6281155D24BD0B8D00B8488D /* StandardExchangeGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardExchangeGateway.swift; sourceTree = "<group>"; };
-		628BF9A024C2DC9C005EF28F /* ExchangeItemAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeItemAdapter.swift; sourceTree = "<group>"; };
-		62905B8524BD46B6001D50F1 /* ExchangesLisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesLisViewModel.swift; sourceTree = "<group>"; };
+		628BF9A024C2DC9C005EF28F /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
+		62905B8524BD46B6001D50F1 /* ExchangesListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesListInteractor.swift; sourceTree = "<group>"; };
 		62905B8B24BD9696001D50F1 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
 		62905B8D24BD96C1001D50F1 /* ExchangeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeTableViewCell.swift; sourceTree = "<group>"; };
 		62905B8F24BD9A2F001D50F1 /* ExchangesListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesListDataSource.swift; sourceTree = "<group>"; };
@@ -134,6 +135,7 @@
 		62C93F0D24C1B57300929B7C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/NetworkError.strings"; sourceTree = "<group>"; };
 		62C93F1124C1B72600929B7C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ExchangesExtra.strings; sourceTree = "<group>"; };
 		62C93F1324C1B72C00929B7C /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/ExchangesExtra.strings"; sourceTree = "<group>"; };
+		62E0D13D24CC1B6E0006A94E /* ExchangesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesListPresenter.swift; sourceTree = "<group>"; };
 		62E443B324C418F10058F021 /* QuerosermbChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuerosermbChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62E443B724C418F10058F021 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62E443BD24C4193E0058F021 /* QuerosermbChallengeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuerosermbChallengeTests.swift; sourceTree = "<group>"; };
@@ -149,7 +151,7 @@
 		62E443E624C41B9E0058F021 /* BaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTest.swift; sourceTree = "<group>"; };
 		62E443ED24C424C70058F021 /* ExchangeCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCoordinatorSpec.swift; sourceTree = "<group>"; };
 		62E443EF24C425C90058F021 /* ExchangeCoordinatorRobot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCoordinatorRobot.swift; sourceTree = "<group>"; };
-		62E443F124C43D7E0058F021 /* ExchangesLisViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesLisViewModelSpy.swift; sourceTree = "<group>"; };
+		62E443F124C43D7E0058F021 /* ExchangesListPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesListPresenterSpy.swift; sourceTree = "<group>"; };
 		62E443F424C4470F0058F021 /* ExchangesLisViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesLisViewModelSpec.swift; sourceTree = "<group>"; };
 		62EA043E24C00A8D0076F026 /* DolarFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DolarFormatter.swift; sourceTree = "<group>"; };
 		62EA044124C00B920076F026 /* ExchangeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeDetailViewController.swift; sourceTree = "<group>"; };
@@ -276,25 +278,26 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
-		62302B2F24BCDF590015A331 /* ListExchange */ = {
+		62302B2F24BCDF590015A331 /* ExchangesList */ = {
 			isa = PBXGroup;
 			children = (
-				628BF99F24C2DC8A005EF28F /* Adapter */,
+				62E0D13F24CC1DF80006A94E /* ViewModel */,
 				62EA044324C00F2B0076F026 /* Delegate */,
 				62905B9424BEC11A001D50F1 /* View */,
 				62905B8824BD9634001D50F1 /* Cell */,
 				62905B8724BD95CB001D50F1 /* DataProvider */,
-				62302B3024BCDF8A0015A331 /* ExchangesListViewController.swift */,
-				62905B8524BD46B6001D50F1 /* ExchangesLisViewModel.swift */,
+				62302B3024BCDF8A0015A331 /* ExchangesListScene.swift */,
+				62905B8524BD46B6001D50F1 /* ExchangesListInteractor.swift */,
+				62E0D13D24CC1B6E0006A94E /* ExchangesListPresenter.swift */,
 			);
-			path = ListExchange;
+			path = ExchangesList;
 			sourceTree = "<group>";
 		};
 		62302B3724BCE99B0015A331 /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				62302B2A24BCDE450015A331 /* Coordinators */,
-				62302B2F24BCDF590015A331 /* ListExchange */,
+				62302B2F24BCDF590015A331 /* ExchangesList */,
 				62EA044024C00B6B0076F026 /* ExchangeDetail */,
 			);
 			path = Application;
@@ -363,14 +366,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		628BF99F24C2DC8A005EF28F /* Adapter */ = {
-			isa = PBXGroup;
-			children = (
-				628BF9A024C2DC9C005EF28F /* ExchangeItemAdapter.swift */,
-			);
-			path = Adapter;
-			sourceTree = "<group>";
-		};
 		62905B8724BD95CB001D50F1 /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +432,14 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
+		62E0D13F24CC1DF80006A94E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				628BF9A024C2DC9C005EF28F /* ExchangeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		62E443B424C418F10058F021 /* QuerosermbChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,7 +467,7 @@
 		62E443D024C41A850058F021 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				62E443F124C43D7E0058F021 /* ExchangesLisViewModelSpy.swift */,
+				62E443F124C43D7E0058F021 /* ExchangesListPresenterSpy.swift */,
 				62E443D124C41A950058F021 /* ExchangeGatewayMock.swift */,
 				62E443D424C41AAF0058F021 /* ExchangesMock.swift */,
 			);
@@ -857,14 +860,15 @@
 				6281155A24BD036C00B8488D /* Exchange.swift in Sources */,
 				62C93EF424C1B23F00929B7C /* R.generated.swift in Sources */,
 				62AEC0C724BEEB9E002F975A /* ExchangeIcon.swift in Sources */,
-				628BF9A124C2DC9C005EF28F /* ExchangeItemAdapter.swift in Sources */,
+				628BF9A124C2DC9C005EF28F /* ExchangeViewModel.swift in Sources */,
 				62EA044224C00B920076F026 /* ExchangeDetailViewController.swift in Sources */,
-				62302B3124BCDF8A0015A331 /* ExchangesListViewController.swift in Sources */,
+				62E0D13E24CC1B6E0006A94E /* ExchangesListPresenter.swift in Sources */,
+				62302B3124BCDF8A0015A331 /* ExchangesListScene.swift in Sources */,
 				6281155524BD027E00B8488D /* NetworkError.swift in Sources */,
 				6281154A24BD011200B8488D /* GetRequestable.swift in Sources */,
 				62EA043F24C00A8D0076F026 /* DolarFormatter.swift in Sources */,
 				6281155724BD02FD00B8488D /* ExchangeGateway.swift in Sources */,
-				62905B8624BD46B6001D50F1 /* ExchangesLisViewModel.swift in Sources */,
+				62905B8624BD46B6001D50F1 /* ExchangesListInteractor.swift in Sources */,
 				62905B8E24BD96C1001D50F1 /* ExchangeTableViewCell.swift in Sources */,
 				6204B57124C0465300071017 /* String+Date.swift in Sources */,
 			);
@@ -876,7 +880,7 @@
 			files = (
 				62E443CE24C41A6F0058F021 /* MapperHelper.swift in Sources */,
 				62E443D224C41A950058F021 /* ExchangeGatewayMock.swift in Sources */,
-				62E443F224C43D7E0058F021 /* ExchangesLisViewModelSpy.swift in Sources */,
+				62E443F224C43D7E0058F021 /* ExchangesListPresenterSpy.swift in Sources */,
 				62E443F524C4470F0058F021 /* ExchangesLisViewModelSpec.swift in Sources */,
 				62E443D524C41AAF0058F021 /* ExchangesMock.swift in Sources */,
 				62E443BE24C4193E0058F021 /* QuerosermbChallengeTests.swift in Sources */,
